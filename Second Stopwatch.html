@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Stopwatch</title>
+</head>
+<body>
+
+    <h3 id="detik">0</h3>
+
+    <button onclick="startStopwatch()">Start</button>
+    <button onclick="stopStopwatch()">Stop</button>
+    <button onclick="resetStopwatch()">Reset</button>
+
+    <script>
+        let waktu = 0;
+        let interval = null;
+
+       
+        function startStopwatch() {
+            if (interval !== null) return;
+
+            interval = setInterval(function() {
+                waktu++;
+                document.getElementById("detik").textContent = waktu;
+            }, 1000);
+        }
+
+        
+        function stopStopwatch() {
+            clearInterval(interval);
+            interval = null;
+        }
+
+        
+        function resetStopwatch() {
+            stopStopwatch();
+            waktu = 0;
+            document.getElementById("detik").textContent = waktu;
+        }
+    </script>
+
+</body>
+</html>
